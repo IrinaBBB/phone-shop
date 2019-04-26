@@ -42,7 +42,7 @@ $categories = getAllCategories();
                                         <a href="index.php">Home</a>
                                     </li>
                                     <li class="hassubs">
-                                        <a href="#">Categories</a>
+                                        <a href="our_products.php">Categories</a>
                                         <ul>
                                             <?php foreach ($categories as $category) { ?>
                                                 <li><a href="categories.php?id=<?php echo $category['id'];?>&amp;title=<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a></li>

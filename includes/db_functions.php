@@ -16,7 +16,8 @@ function getAllCategories() {
 }
 
 
-function getOneCategory($id) {
+function getOneCategory($id)
+{
     global $db;
     $query = 'SELECT * FROM `categories` WHERE `id` = :id';
     $statement = $db->prepare($query);
@@ -25,6 +26,18 @@ function getOneCategory($id) {
     $result = $statement->fetch();
     $statement->closeCursor();
     return $result;
+}
+
+function getCategoryByProductId($prod_id) {
+    global $db;
+    $query = 'SELECT * FROM `categories` WHERE `id` = :prod_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':prod_id', $prod_id);
+    $statement->execute();
+    $result = $statement->fetch();
+    $statement->closeCursor();
+    return $result;
+
 }
 
 
@@ -41,6 +54,39 @@ function getProductsByCatId($cat_id) {
     return $result;
 }
 
+function getAllProducts() {
+    global $db;
+    $query = 'SELECT * FROM `products`';
+
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $result = $statement->fetchAll();
+    $statement->closeCursor();
+    return $result;
+}
+
+function getProductIds() {
+    global $db;
+    $query = 'SELECT `id` FROM `products`';
+
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $result = $statement->fetchAll();
+    $statement->closeCursor();
+    return $result;
+
+}
+
+function getProductById($id) {
+    global $db;
+    $query = 'SELECT * FROM `products` WHERE `id` = :id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':id', $id);
+    $statement->execute();
+    $result = $statement->fetch();
+    $statement->closeCursor();
+    return $result;
+}
 
 
 

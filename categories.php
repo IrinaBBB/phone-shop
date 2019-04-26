@@ -9,7 +9,7 @@ include './shared/header.php';
 
 $category_id = filter_input(INPUT_GET, 'id');
 $category = getOneCategory($category_id);
-$products = getProductsByCatId($category_id);
+$products = getProductsByCatId($category_id)
 
 
 ?>
@@ -76,7 +76,7 @@ $products = getProductsByCatId($category_id);
                             <div class="product_image"><img src="images/products/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>"></div>
                            <!-- <div class="product_extra product_new"><a href="categories.php">New</a></div>-->
                             <div class="product_content">
-                                <div class="product_title"><a href="product.html"><?php echo $product['name']; ?></a></div>
+                                <div class="product_title"><a href="product.php?id=<?php echo $product['id'];?>&amp;title=<?php echo urlencode($product['name']); ?>"><?php echo $product['name']; ?></a></div>
                                 <div class="product_price">$<?php echo $product['price']; ?></div>
                             </div>
                         </div>
